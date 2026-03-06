@@ -1,0 +1,29 @@
+{
+    "weights": {
+        "w_E": 0.6,
+        "w_C": 0.4,
+        "w_S": 0.8,
+        "w_V": 0.2
+    },
+    "priors": {
+        "alpha": 1,
+        "beta": 1
+    },
+    "confidence": {
+        "method": "tp_discount",
+        "wilson_z": 1.96,
+        "discount_k": 50,
+        "tp_discount_k": 10
+    },
+    "threshold": 30.0,
+    "data": {
+        "file": "data-2026-01.csv",
+        "past_cutoff": "2026-01-30",
+        "datetime_col": "created_at",
+        "name_col": "name",
+        "resolution_col": "resolution_code",
+        "tp_value": "HT",
+        "fp_value": "FPAlert"
+    },
+    "data_mode": "partial"
+}
