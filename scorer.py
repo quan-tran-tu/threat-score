@@ -121,7 +121,7 @@ class AlertScorer:
         PT(a, t) = L(a, t) * I(a) * 10 * M(a)
         L(a, t) = w_E * E(a) + w_C * C_r(t)
         I(a) = w_S * S(a) + w_V * V(a)
-        E(a) = V(a) = 1 for now
+        E(a) = 1, V(a) = 5, M(a) = 1 (hard-coded for now)
         """
         E = 1.0
         V = 5.0     # Asset value
