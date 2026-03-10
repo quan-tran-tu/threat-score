@@ -5,7 +5,7 @@ Scores SOAR alerts using historical TP/FP data to prioritize which alerts an ana
 ## Formula
 
 ```
-PT(a, t) = L(a, t) × I(a) × 10
+PT(a, t) = L(a, t) × I(a) × 10 × M(a)
 
 L(a, t) = w_E × E(a) + w_C × C_r(t)
 I(a)    = w_S × S(a) + w_V × V(a)
@@ -15,6 +15,7 @@ I(a)    = w_S × S(a) + w_V × V(a)
 - `C_r(t)` — confidence score for rule name `r`, based on historical TP/FP ratio
 - `S(a)` — severity score (from `kibana.alert.severity` in partial mode)
 - `V(a)` — vulnerability score (hardcoded to 5.0)
+- `M(a)` — mitigation factor (hardcoded to 1.0)
 
 ## Run
 

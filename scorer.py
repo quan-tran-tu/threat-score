@@ -118,18 +118,19 @@ class AlertScorer:
 
     def score(self, alert_name, more_info=""):
         """
-        PT(a, t) = L(a, t) * I(a) * 10
+        PT(a, t) = L(a, t) * I(a) * 10 * M(a)
         L(a, t) = w_E * E(a) + w_C * C_r(t)
         I(a) = w_S * S(a) + w_V * V(a)
         E(a) = V(a) = 1 for now
         """
         E = 1.0
-        V = 5.0
+        V = 5.0     # Asset value
+        M = 1.0     # Mitigation factor
         S = self.severity_score(more_info)
         C_r = self.confidence(alert_name)
         L = self.w_E * E + self.w_C * C_r
         I = self.w_S * S + self.w_V * V
-        return round(L * I * 10, 4)
+        return round(L * I * 10 * M, 4)
 
     def update(self, alert_name, resolution_code, tp_value="HT", fp_value="FPAlert"):
         """Update cumulative counts after an alert is resolved."""
